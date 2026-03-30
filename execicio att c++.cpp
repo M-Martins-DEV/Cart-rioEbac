@@ -130,54 +130,70 @@ int deletar() //função reponsavel por deletar um usuário cadastrado
 
 
 int main() //função principal é nela que a execução do programa começa
-{
+ { 
 	int opcao=0; //definindo variaveis 
 	int laco=1; //definindo variaveis 
+	char senhadigitada[10]="a";
+	int comparacao;
 	
-	for(laco=1;laco==1;)
-	{
+	printf("### Cartório da EBAC ###\n\n");
+	printf("Login de adminstrador!\n\nDigite a sua senha: ");
+	scanf("%s",senhadigitada);
 	
-	 system("cls"); //responsavel por limpar a tela
+	comparacao = strcmp(senhadigitada, "admin");
 	
-	 setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
+	if(comparacao == 0)
+    {
+	     system ("cls");
+       	for(laco=1;laco==1;)
+    	{
 	
-	 printf("### Cartório da EBAC ###\n\n"); //inicio do menu 
-	 printf("Escolha a opção desejada do menu\n\n"); //traz o texto a tela para fazer o usúario escolher uma opção
-	 printf("\t1 - Resgistrar nomes\n"); //responsavel por trazer a opção de registrar
-     printf("\t2 - Consultar nomes\n"); //responsavel por trazer a opção de consulta
-     printf("\t3 - Deletar nomes\n\n"); //responsavel por deletar as açoes feitas a partir do primeiro (t1)
-     printf("\t4 - Sair do sistema\n\n");
-     printf("Opção: "); //fim do menu
+	     system("cls"); //responsavel por limpar a tela
+	
+	     setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
+	
+	      printf("### Cartório da EBAC ###\n\n"); //inicio do menu 
+	     printf("Escolha a opção desejada do menu\n\n"); //traz o texto a tela para fazer o usúario escolher uma opção
+	     printf("\t1 - Resgistrar nomes\n"); //responsavel por trazer a opção de registrar
+         printf("\t2 - Consultar nomes\n"); //responsavel por trazer a opção de consulta
+         printf("\t3 - Deletar nomes\n\n"); //responsavel por deletar as açoes feitas a partir do primeiro (t1)
+         printf("\t4 - Sair do sistema\n\n");
+         printf("Opção: "); //fim do menu
     
-     scanf("%d", &opcao); //armazenando a escolha do usuario "%d" 
+          scanf("%d", &opcao); //armazenando a escolha do usuario "%d" 
 	
-	 system("cls"); // responsavel por limpar a tela
+	     system("cls"); // responsavel por limpar a tela
 	
 	
-	    switch(opcao) //inicio da seleção do menu
-	    {
-	     case 1: //se caso o valor seja 1 ira executar as opções disponiveis
-	     registro(); //chamada de funções, registrar
-		 break; //encerra a comando em andamento
+	     switch(opcao) //inicio da seleção do menu
+	         {
+	         case 1: //se caso o valor seja 1 ira executar as opções disponiveis
+	         registro(); //chamada de funções, registrar
+		     break; //encerra a comando em andamento
 	 
-		 case 2: 
-		 consulta(); //chamada de funções, consultar
-		 break;	
+		     case 2: 
+		     consulta(); //chamada de funções, consultar
+		     break;	
 		
-		 case 3: 
-		 deletar(); //chamada de funções, deletar
-		 break; 
+		     case 3: 
+		     deletar(); //chamada de funções, deletar
+		     break; 
 		 
-		 case 4:
-		 printf("obrigado por utilizar nosso sistema!\n");
-		 return 0;
-		 break;
+		     case 4:
+		     printf("obrigado por utilizar nosso sistema!\n");
 		
-		 default: //caso não tenha a opção que no caso o valor é 0 sera executado de imediato
-		 printf("Essa opção não está disponivel!\n"); 
-         system("pause"); 
-         break; 
-	    } //fim da seleção do menu
+		     return 0;
+		     break;
 		
+		     default: //caso não tenha a opção que no caso o valor é 0 sera executado de imediato
+		     printf("Essa opção não está disponivel!\n"); 
+             system("pause"); 
+             break; 
+	        } //fim da seleção do menu
+ 	    }
     }
-}
+    
+    else
+        printf("senha incorreta!");
+ }
+
